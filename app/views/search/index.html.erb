@@ -1,15 +1,15 @@
-<h1> 16 events for March </h1>
-<table>
+<h1> <%= @events.count %> events for March </h1>
+<table class="table">
   <tr> 
-    <th>title</th>
-    <th>city</th>
-    <th>start_time</th>
-    <th>description</th>
-    <th>venue</th>
-    <th>venue url</th>
-    <th>venue address</th>
+    <th>Title</th>
+    <th>City</th>
+    <th>Day / Start Time</th>
+    <th>Description</th>
+    <th>Venue</th>
+    <th>Venue URL</th>
+    <th>Venue Address</th>
   </tr>
-  <% @response.each do |event| %>
+  <% @events.each do |event| %>
     <tr>
       <td><%= event[:title] %></td>
       <td><%= event[:city_name] %></td>
