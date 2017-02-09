@@ -1,4 +1,4 @@
-<h1> <%= @events.count %> events for March </h1>
+<h1> <%= @events.count %> Events for March </h1>
 <table class="table">
   <tr> 
     <th>Title</th>
@@ -10,12 +10,12 @@
     <th>Venue Address</th>
   </tr>
   <% @events.each do |event| %>
-    <tr>
+    <tr class="event">
       <td><%= event[:title] %></td>
       <td><%= event[:city_name] %></td>
       <td><%= event[:start_time] %></td>
       <% if event[:description] %>
-        <td><%= event[:description][0..140] %></td>
+        <td><%= event[:description][0..140].html_safe %></td>
       <% else %>
         <td> no description available </td>
       <% end %>
