@@ -3,24 +3,22 @@
   <tr> 
     <th>Title</th>
     <th>City</th>
-    <th>Day / Start Time</th>
+    <th>Date / Start Time</th>
     <th>Description</th>
     <th>Venue</th>
-    <th>Venue URL</th>
     <th>Venue Address</th>
   </tr>
   <% @events.each do |event| %>
     <tr class="event">
       <td><%= event[:title] %></td>
       <td><%= event[:city_name] %></td>
-      <td><%= event[:start_time] %></td>
+      <td><%= DateTime.parse(event[:start_time]).strftime("%A, %d %b %Y %l:%M %p") %></td>
       <% if event[:description] %>
         <td><%= event[:description][0..140].html_safe %></td>
       <% else %>
         <td> no description available </td>
       <% end %>
-      <td> <%= event[:venue_name] %></td>
-      <td><a href="<%= event[:venue_url] %>">Venue URL</a></td>
+      <td><a href="<%= event[:venue_url] %>"><%= event[:venue_name] %></a></td>
       <td><%= event[:venue_address] %></td>
     </tr>
   <% end %> 

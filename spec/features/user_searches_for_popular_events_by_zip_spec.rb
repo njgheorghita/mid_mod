@@ -12,8 +12,14 @@ describe "As a User" do
       expect(current_path).to eq("/search")
       expect(page).to have_content("16 Events for March") 
       page.should have_selector('table tr', :count => 17)
-      # For each event I can see the Event name, date & time, description (shortened to 140 characters), venue name (url to the venue page), venue address.
       within first('.event') do 
+        expect(page).to have_content("Experience Hendrix")
+        expect(page).to have_content("Denver")
+        expect(page).to have_content("Tuesday, 07 Mar 2017 7:30 PM")
+        expect(page).to have_content("no description available")
+        expect(page).to have_content("Paramount Theatre")
+        expect(page).to have_content("1621 Glenarm Place")
+      end
     end
   end
 end 
