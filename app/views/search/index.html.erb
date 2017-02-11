@@ -10,16 +10,12 @@
   </tr>
   <% @events.each do |event| %>
     <tr class="event">
-      <td><%= event[:title] %></td>
-      <td><%= event[:city_name] %></td>
-      <td><%= DateTime.parse(event[:start_time]).strftime("%A, %d %b %Y %l:%M %p") %></td>
-      <% if event[:description] %>
-        <td><%= event[:description][0..140].html_safe %></td>
-      <% else %>
-        <td> no description available </td>
-      <% end %>
-      <td><a href="<%= event[:venue_url] %>"><%= event[:venue_name] %></a></td>
-      <td><%= event[:venue_address] %></td>
+      <td><%= event.title %></td>
+      <td><%= event.city %></td>
+      <td><%= event.date_time %></td>
+      <td><%= event.description %></td>
+      <td><%= link_to event.venue, event.url %></td>
+      <td><%= event.venue_address %></td>
     </tr>
   <% end %> 
 </table>
